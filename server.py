@@ -1,28 +1,37 @@
 import socket
-import os
+from threading import Thread
 
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
-ip = "127.0.0.1"
-port = 4567
+ip = "192.168.29.223"
+port = 4569
 maxClients = 1
 
 s.bind((ip, port))
+print("Server running at", ip, " ", port)
 s.listen(maxClients)
 conn, addr = s.accept()
-print("[+] New connection with", addr, "sucessfully!")
+print("[+] New connection!")
 
-while True:
-    msg = input("Enter your message: ")
-    if msg != 'end':
-        msg = msg.encode()
-        conn.send(msg)
-        recievedMsg = conn.recv(1024)
-        recievedMsg = recievedMsg.decode()
-        print(recievedMsg)
-    else:
-        msg = msg.encode()
-        conn.send(msg)
-        #os.system("npx kill-port 4567")
-        print("Terminating  your program: ")
-        break
+class Send(Thread):
+    def run(self):
+        while True:
+            msg = input("Enter your message: ")
+            msg = msg.encode()
+            conn.send(msg)
+            print("[+] Message sent....")
+           
+class Recieve(Thread):
+    def run(self):
+        while True:
+            recievedMsg = conn.recv(1024)
+            recievedMsg = recievedMsg.decode()
+            print("Received:", recievedMsg)
+
+Send().start() 
+Recieve().start()     
+
+
+
+
+
