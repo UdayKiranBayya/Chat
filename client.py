@@ -1,13 +1,14 @@
 import socket
+from configparser import ConfigParser
 from threading import Thread
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
-ip = '3.142.129.56'
-port = 14399
+config_object = ConfigParser()
+config_object.read("config.ini")
+info = config_object["SERVERINFO"]
+ip = info["clientip"]
+port = int(info["clientport"])
 
-#with open("config.json", 'r') as File:
-    #ip = File["ip_client"]
-    #port = File["clientPort"]
 
 
 s.connect((ip, port))

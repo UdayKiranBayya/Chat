@@ -1,13 +1,16 @@
 import socket
 from threading import Thread
+from configparser import ConfigParser
 
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-ip = "127.0.0.1"
-port = 8010
 
-#with open("config.json", 'r') as File:
-    #ip = File["ipServer"]
-    #port = File["ServerPort"]
+
+config_object = ConfigParser()
+config_object.read("config.ini")
+info = config_object["SERVERINFO"]
+ip = info["serverip"]
+port = int(info["serverport"])
+
 
 
 maxClients = 1
