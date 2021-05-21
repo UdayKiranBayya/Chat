@@ -5,7 +5,7 @@ s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 ip = ""
 
 with open("config.json", 'r') as File:
-    ip = File["ip"]
+    ip = File["ip_server"]
 
 port = 4569
 maxClients = 1
