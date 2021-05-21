@@ -2,12 +2,12 @@ import socket
 from threading import Thread
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
-ip = ''
-port = ""
+ip = '3.142.129.56'
+port = "14399"
 
-with open("config.json", 'r') as File:
-    ip = File["ip_client"]
-    port = File["clientPort"]
+#with open("config.json", 'r') as File:
+    #ip = File["ip_client"]
+    #port = File["clientPort"]
 
 
 s.connect((ip, port))
