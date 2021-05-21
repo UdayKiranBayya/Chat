@@ -7,8 +7,8 @@ config_object = ConfigParser()
 config_object.read("config.ini")
 info = config_object["SERVERINFO"]
 ip = info["clientip"]
-port = int(info["clientport"])
-
+port = info["clientport"]
+port = int(port)
 
 
 s.connect((ip, port))

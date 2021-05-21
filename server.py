@@ -9,7 +9,9 @@ config_object = ConfigParser()
 config_object.read("config.ini")
 info = config_object["SERVERINFO"]
 ip = info["serverip"]
-port = int(info["serverport"])
+port = info["serverport"]
+port = int(port)
+
 
 
 
