@@ -3,7 +3,7 @@ from threading import Thread
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
 ip = '3.142.129.56'
-port = "14399"
+port = 14399
 
 #with open("config.json", 'r') as File:
     #ip = File["ip_client"]
