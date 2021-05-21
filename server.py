@@ -3,11 +3,13 @@ from threading import Thread
 
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 ip = ""
+port = ""
 
 with open("config.json", 'r') as File:
-    ip = File["ip_server"]
+    ip = File["ipServer"]
+    port = File["ServerPort"]
 
-port = 4569
+
 maxClients = 1
 
 s.bind((ip, port))

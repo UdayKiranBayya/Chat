@@ -3,11 +3,13 @@ from threading import Thread
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
 ip = ''
+port = ""
 
 with open("config.json", 'r') as File:
     ip = File["ip_client"]
+    port = File["clientPort"]
 
-port = 4569
+
 s.connect((ip, port))
 print("[+] Connected!")
 class SendClient(Thread):

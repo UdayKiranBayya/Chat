@@ -1,6 +1,6 @@
 {
-    "ip_server": "127.0.0.1",
-    "ip_client": "3.142.129.56",
-    "server_port": "8010",
-    "client_port": "14399"
+    "ipServer": "127.0.0.1",
+    "ipClient": "3.142.129.56",
+    "serverPort": "8010",
+    "clientPort": "14399"
 }
