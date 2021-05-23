@@ -36,7 +36,7 @@ class Recieve(Thread):
         while True:
             recievedMsg = conn.recv(1024)
             recievedMsg = recievedMsg.decode()
-            print("Received:", recievedMsg)
+            print("\nReceived:", recievedMsg)
 
 Send().start() 
 Recieve().start()     

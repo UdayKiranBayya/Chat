@@ -26,7 +26,7 @@ class RecieveClient(Thread):
         while True:
             receivedMsg = s.recv(1024)
             receivedMsg = receivedMsg.decode()
-            print("Recieved:", receivedMsg)
+            print("\nRecieved:", receivedMsg)
 
 
 
