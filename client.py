@@ -17,7 +17,7 @@ class SendClient(Thread):
     def run(self):
         while True:
             msg = input ("Enter your message: ")
-            msg = msg.encode()
+            msg = msg.encode('utf-8')
             s.send(msg)
             print("[+] Message sent....")
 
@@ -25,7 +25,7 @@ class RecieveClient(Thread):
     def run(self):
         while True:
             receivedMsg = s.recv(1024)
-            receivedMsg = receivedMsg.decode()
+            receivedMsg = receivedMsg.decode('utf-8')
             print("\nRecieved:", receivedMsg)
 
 

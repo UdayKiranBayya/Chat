@@ -27,7 +27,7 @@ class Send(Thread):
     def run(self):
         while True:
             msg = input("Enter your message: ")
-            msg = msg.encode()
+            msg = msg.encode('utf-8')
             conn.send(msg)
             print("[+] Message sent....")
            
@@ -35,7 +35,7 @@ class Recieve(Thread):
     def run(self):
         while True:
             recievedMsg = conn.recv(1024)
-            recievedMsg = recievedMsg.decode()
+            recievedMsg = recievedMsg.decode('utf-8')
             print("\nReceived:", recievedMsg)
 
 Send().start() 
